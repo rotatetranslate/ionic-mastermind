@@ -35,10 +35,10 @@
             to the currently selected icon.
           -->
           <div class="button-bar">
-            <button class="button button-icon icon //add-class-here"></button>
-            <button class="button button-icon icon //add-class-here"></button>
-            <button class="button button-icon icon //add-class-here"></button>
-            <button class="button button-icon icon //add-class-here"></button>
+            <button class="button button-icon icon {{icons[turn.choices[0]] || 'ion-more' }}" ng-click="turn.choices[0]=selectedIcon"></button>
+            <button class="button button-icon icon {{icons[turn.choices[1]] || 'ion-more' }}" ng-click="turn.choices[1]=selectedIcon"></button>
+            <button class="button button-icon icon {{icons[turn.choices[2]] || 'ion-more' }}" ng-click="turn.choices[2]=selectedIcon"></button>
+            <button class="button button-icon icon {{icons[turn.choices[3]] || 'ion-more' }}" ng-click="turn.choices[3]=selectedIcon"></button>
           </div>
         </div>
         <div class="col col-20 text-center left-border">
@@ -46,7 +46,7 @@
             <!-- TODO:
               If this turn is the current turn, display a [score] button
               that's disabled unless an icon has been chosen for all positions.
-              
+
               If not current turn, display the score for turn.
               The score should show a <div> with a class of 'perfect'
               for each position with correct icon and position
