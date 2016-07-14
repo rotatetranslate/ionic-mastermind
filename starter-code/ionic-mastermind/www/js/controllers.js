@@ -12,9 +12,17 @@ angular.module('starter.controllers', [])
   // TODO: You're going to need a data structure to hold a list of "turns";
   // and those "turns" are likely going to be objects...
 
+
   // Initialize game state
   $scope.newGame = function() {
     // TODO: Set all data properties/structures to their beginning state
+    function generateSecret() {
+      var secret = [];
+      while (secret.length < 4) {
+        secret.push(Math.floor(Math.random() *4))
+      }
+      return secret;
+    }
 
   };
 
