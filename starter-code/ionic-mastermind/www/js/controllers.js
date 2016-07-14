@@ -14,7 +14,7 @@ angular.module('starter.controllers', [])
   $scope.turns = [];
 
   function Turn() {
-    this.choice = [null, null, null, null];
+    this.choices = [null, null, null, null];
     this.almost = 0;
     this.perfect = 0;
   }
