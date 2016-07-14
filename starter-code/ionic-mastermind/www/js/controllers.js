@@ -11,18 +11,32 @@ angular.module('starter.controllers', [])
 
   // TODO: You're going to need a data structure to hold a list of "turns";
   // and those "turns" are likely going to be objects...
+  $scope.turns = [];
 
+  function Turn() {
+    this.choice = [null, null, null, null];
+    this.almost = 0;
+    this.perfect = 0;
+  }
+
+  var generateSecret = function () {
+    var secret = [];
+    while (secret.length < 4) {
+      secret.push(Math.floor(Math.random() *4))
+    }
+    return secret;
+  }
 
   // Initialize game state
   $scope.newGame = function() {
     // TODO: Set all data properties/structures to their beginning state
-    function generateSecret() {
-      var secret = [];
-      while (secret.length < 4) {
-        secret.push(Math.floor(Math.random() *4))
-      }
-      return secret;
-    }
+    generateSecret();
+
+    $scope.turns = [];
+
+    $scope.turns.push(new Turn);
+
+    $scope.currentTurn = $scope.turns.length - 1;
 
   };
 
@@ -37,6 +51,26 @@ angular.module('starter.controllers', [])
   */
   $scope.scoreTurn = function() {
     // TODO: Score the turn
+
+    // when button is cicked
+    $scope.currentTurn.choices.forEach(function(choice, i) {
+      if (choice === secret[i]) {
+        perfect++;
+      } else {
+        if (secret.includes(choice)) {
+          almost++;
+        }
+      }
+      return $scope.currentTurn;
+    });
+
+    // see if this works once above works
+    // choice === secret[i] ? perect++ : secret.includes(choice) ? almost++;
+
+    // after score is calculated
+    $scope.turns.push(new Turn);
+
+    $scope.currentTurn = $scope.turns[length - 1];
 
     // TODO: Show winModal IF turn is correct. Put line below in an if statement.
     // $scope.winModal.show();
