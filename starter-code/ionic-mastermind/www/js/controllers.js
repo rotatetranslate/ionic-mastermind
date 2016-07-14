@@ -34,7 +34,7 @@ angular.module('starter.controllers', [])
 
     $scope.turns = [];
 
-    $scope.turns.push(new Turn);
+    $scope.turns.push(new Turn());
 
     $scope.currentTurn = $scope.turns.length - 1;
 
@@ -68,7 +68,7 @@ angular.module('starter.controllers', [])
     // choice === secret[i] ? perect++ : secret.includes(choice) ? almost++;
 
     // after score is calculated
-    $scope.turns.push(new Turn);
+    $scope.turns.push(new Turn());
 
     $scope.currentTurn = $scope.turns[length - 1];
 
