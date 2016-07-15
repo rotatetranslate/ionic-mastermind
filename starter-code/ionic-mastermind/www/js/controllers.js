@@ -12,6 +12,7 @@ angular.module('starter.controllers', [])
   // TODO: You're going to need a data structure to hold a list of "turns";
   // and those "turns" are likely going to be objects...
   $scope.turns = [];
+  var secret = [];
 
   function Turn() {
     this.choices = [null, null, null, null];
@@ -36,7 +37,7 @@ angular.module('starter.controllers', [])
 
     $scope.turns.push(new Turn());
 
-    $scope.currentTurn = $scope.turns.length - 1;
+    $scope.currentTurn = $scope.turns[$scope.turns.length - 1];
 
   };
 
@@ -51,7 +52,7 @@ angular.module('starter.controllers', [])
   */
   $scope.scoreTurn = function() {
     // TODO: Score the turn
-
+    console.log($scope.currentTurn);
     // when button is cicked
     $scope.currentTurn.choices.forEach(function(choice, i) {
       if (choice === secret[i]) {
